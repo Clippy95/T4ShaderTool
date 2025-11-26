@@ -84,7 +84,7 @@ int updateShaderSize(char const* filename)
             }
             else {
                 colorPrint(RED, "ERROR: Failed to open file '%s' for writing!\n", filename);
-                colorPrint(RED, "Make sure you are running shader_tool.exe as administrator!\n");
+                colorPrint(RED, "Make sure you are running the tool as administrator!\n");
             }
             free(buffer);
         }
@@ -98,10 +98,17 @@ int updateShaderSize(char const* filename)
 
 int main(int argc, char** argv)
 {
+
+    char* exe_name = argv[0];
+
+    char* last_slash = strrchr(exe_name, '\\');
+    if (!last_slash) last_slash = strrchr(exe_name, '/');
+    if (last_slash) exe_name = last_slash + 1;
+
     if (argc < 2)
     {
-        printf("USAGE: shader_tool.exe <shader_name1> <shader_name2> <shader_name3> ...\n");
-        printf("Example: shader_tool.exe z_scrolling_hud my_custom_shader another_shader\n");
+        printf("USAGE: %s <shader_name1> <shader_name2> <shader_name3> ...\n", exe_name);
+        printf("Example: %s z_scrolling_hud my_custom_shader another_shader\n", exe_name);
         return 0;
     }
 
