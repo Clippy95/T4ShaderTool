@@ -1,4 +1,4 @@
-# T4ShaderLinker
+# T4ShaderTool
 simple tool that automates compiling shaders for World At War
 
 ## Credits:
